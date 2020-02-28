@@ -22,6 +22,4 @@ app.use(express.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 app.use(routes)
 
-app.listen(API_PORT, () => {
-    console.log('Server Rodando http://localhost:' + API_PORT)
-})
+app.listen(process.env.PORT || 3333)
