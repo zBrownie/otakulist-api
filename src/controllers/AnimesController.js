@@ -9,11 +9,9 @@ module.exports = {
     },
     async store(request, response) {
 
-        const { title, link, link2, pos, dia, desc, streaming } = request.body;
+        const { title, link, link2, pos, dia, desc, streaming, img_url } = request.body;
 
-        const { location: img_url = "" } = request.file;
-
-        let anime = await Anime.findOne({ title, link })
+        let anime = await Anime.findOne({ title })
 
         if (!anime) {
             anime = await Anime.create({

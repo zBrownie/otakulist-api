@@ -7,6 +7,7 @@ const UserController = require('./controllers/UserController')
 const SearchUserController = require('./controllers/SearchUserController')
 const AnimeController = require('./controllers/AnimesController')
 const SearchAnimeController = require('./controllers/SearchAnimesController')
+const ImageController = require('./controllers/ImageController')
 
 
 const routes = Router()
@@ -14,10 +15,14 @@ const routes = Router()
 
 //ANIMES ROUTES
 routes.get('/animes', AnimeController.index)
-routes.post('/animes', multer(multerConfig).single('file'), AnimeController.store)
+routes.post('/animes', AnimeController.store)
 
 routes.get('/search', SearchAnimeController.index)
 
+//IMAGES
+routes.get('/images', ImageController.index)
+routes.post('/images', multer(multerConfig).single('file'), ImageController.store)
+routes.delete('/images/:id', ImageController.delete)
 
 //USER ROUTES
 routes.get('/users', UserController.index)

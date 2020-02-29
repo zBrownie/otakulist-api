@@ -9,12 +9,12 @@ const AnimeSchema = new mongoose.Schema({
     },
     link: {
         type: String,
-        required: true,
+        required: false,
         createIndexes: { unique: true }
     },
     link2: {
         type: String,
-        required: true,
+        required: false,
         createIndexes: { unique: true }
     },
     pos: {
