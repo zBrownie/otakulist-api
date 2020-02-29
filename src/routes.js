@@ -18,6 +18,8 @@ routes.get('/animes', AnimeController.index)
 routes.post('/animes', AnimeController.store)
 
 routes.get('/search', SearchAnimeController.index)
+routes.get('/search/day', SearchAnimeController.dayanimes)
+routes.get('/search/season', SearchAnimeController.seasonanimes)
 
 //IMAGES
 routes.get('/images', ImageController.index)

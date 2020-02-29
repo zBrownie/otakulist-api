@@ -3,9 +3,20 @@ const Anime = require('../models/Anime')
 
 module.exports = {
     async index(request, response) {
-        const { title } = request.body;
+        const { id } = request.id;
+        let anime = await Anime.findOne({ id })
 
-        let anime = await User.findOne({ title })
+        if (anime) {
+            return response.json(anime)
+        }
+
+        return response.json({
+            "error": "Anime not find"
+        })
+    },
+    async dayanimes(request, response) {
+
+        let anime = await Anime.find({ streaming: true, pos: new Date().getDay() })
 
         if (anime) {
             return response.json(anime)
@@ -16,6 +27,19 @@ module.exports = {
         })
 
     },
+    async seasonanimes(request, response) {
+
+        let anime = await Anime.find({ streaming: true })
+
+        if (anime) {
+            return response.json(anime)
+        }
+
+        return response.json({
+            "error": "Anime not find"
+        })
+
+    }
 
 
 }
