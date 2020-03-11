@@ -25,17 +25,6 @@ module.exports = {
     });
   },
   async seasonanimes(request, response) {
-    let anime = await Anime.find({ streaming: true });
-
-    if (anime) {
-      return response.json(anime);
-    }
-
-    return response.json({
-      error: "Anime not find"
-    });
-  },
-  async seasongetter(request, response) {
     let anime = await Anime.find({ streaming: true }).sort({ pos: -1 });
 
     if (anime) {
