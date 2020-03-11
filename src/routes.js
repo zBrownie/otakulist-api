@@ -20,7 +20,6 @@ routes.post('/animes', AnimeController.store)
 routes.get('/search', SearchAnimeController.index)
 routes.get('/search/day', SearchAnimeController.dayanimes)
 routes.get('/search/season', SearchAnimeController.seasonanimes)
-// routes.get('/search/teste', SearchAnimeController.seasongetter)
 
 //IMAGES
 routes.get('/images', ImageController.index)
@@ -30,6 +29,7 @@ routes.delete('/images/:id', ImageController.delete)
 //USER ROUTES
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.store)
+routes.post('/auth', UserController.authetication)
 
 routes.get('/search_user', SearchUserController.index)
 
